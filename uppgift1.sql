@@ -32,4 +32,12 @@ insert into tbl_bok (bok_titel, Bok_Sidor)
             ('Sunrise of the reaping', '487'),
             ('Aprilhäxan', '267');
 
-);
+insert into tbl_författare (fo_namn)
+    values ('Gabrielle Zevin'),
+    ('Suzanne Collins'),
+    ('Mark Sullivan'),
+    ('Majgull Axelsson');
+
+insert into tbl_bokhandel (bh_namn)
+    values ('Akademibokhandeln'),
+    ('Hörnet');
