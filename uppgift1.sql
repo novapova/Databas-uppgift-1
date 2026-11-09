@@ -46,14 +46,6 @@ insert into tbl_bokhandel (bh_namn, bh_id)
     ('Hörnet', 2);
 
 
-insert into tbl_harbok (hb_bok, hb_bokhandel)
-    select tbl_bok.bok_id, tbl_bokhandel.bh_id
-    from tbl_bok, tbl_bokhandel
-    where tbl_bokhandel.bh_namn = 'Akademibokhandeln'
-    and tbl_bok.bok_titel in ('Under en brinnande himmel', 'Sunrise of the reaping');
-
-insert into tbl_harbok (hb_bok, hb_bokhandel)
-    select tbl_bok.bok_id, tbl_bokhandel.bh_id
-    from tbl_bok, tbl_bokhandel
-    where tbl_bokhandel.bh_namn = 'Hörnet'
-    and tbl_bok.bok_titel in ('Imorgon och imorgon och imorgon', 'Sunrise of the reaping')
+insert into tbl_harbok (hb_bokhandel, hb_bok)
+values (1, 1), (1, 2), (1, 3),
+       (2, 1), (2, 4);
