@@ -5,3 +5,8 @@ WHERE bok_id = 4;
 SELECT * from tbl_bok;
 delete tbl_författare.fo_namn = 'Suzanne Collins';
 SELECT * from tbl_bok;
+
+
+create database northwind;
+
+select current_database();
