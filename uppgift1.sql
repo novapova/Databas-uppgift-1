@@ -9,7 +9,7 @@ CREATE TABLE Tbl_Bok(
     Bok_Titel VARCHAR(100) NOT NULL,
     Bok_Sidor INT NOT NULL,
     Bok_skriven INT not null,
-    FOREIGN KEY(Bok_skriven) REFERENCES Tbl_Författare(Fo_ID) on delete set null
+    FOREIGN KEY(Bok_skriven) REFERENCES Tbl_Författare(Fo_ID)
 );
 
 CREATE TABLE Tbl_Bokhandel(
