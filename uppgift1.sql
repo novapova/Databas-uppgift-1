@@ -1,6 +1,4 @@
-DROP TABLE IF EXISTS Tbl_Bok, Tbl_Författare, Tbl_Bokhandel, Tbl_HarBok;
-
-
+DROP TABLE IF EXISTS Tbl_Bok, Tbl_Författare, Tbl_Bokhandel, Tbl_HarBok cascade;
 
 CREATE TABLE Tbl_Författare(
     Fo_ID INT PRIMARY KEY,
@@ -10,7 +8,7 @@ CREATE TABLE Tbl_Bok(
     Bok_ID INT PRIMARY KEY,
     Bok_Titel VARCHAR(100) NOT NULL,
     Bok_Sidor INT NOT NULL,
-    Bok_skriven INT,
+    Bok_skriven INT not null,
     FOREIGN KEY(Bok_skriven) REFERENCES Tbl_Författare(Fo_ID) on delete set null
 );
 
@@ -34,18 +32,17 @@ insert into tbl_författare (fo_namn, fo_id)
     ('Majgull Axelsson', 4);
 
 insert into tbl_bok (bok_titel, Bok_Sidor, bok_skriven, bok_id)
-    values ('Imorgon och imorgon och imorgon', '356', (select Fo_ID from tbl_författare where fo_namn = 'Gabrielle Zevin'), 1),
-            ('Under en brinnande himmel', '631', (select Fo_ID from tbl_författare where fo_namn = 'Mark Sullivan'), 2),
-            ('Sunrise of the reaping', '487', (select Fo_ID from tbl_författare where fo_namn = 'Suzanne Collins'), 3),
-            ('Aprilhäxan', '267', (select Fo_ID from tbl_författare where fo_namn = 'Majgull Axelsson'), 4);
-
-
+    values ('Imorgon och imorgon och imorgon', 356, (select Fo_ID from tbl_författare where fo_namn = 'Gabrielle Zevin'), 1),
+            ('Under en brinnande himmel', 631, (select Fo_ID from tbl_författare where fo_namn = 'Mark Sullivan'), 2),
+            ('Sunrise of the reaping', 487, (select Fo_ID from tbl_författare where fo_namn = 'Suzanne Collins'), 3),
+            ('Aprilhäxan', 267, (select Fo_ID from tbl_författare where fo_namn = 'Majgull Axelsson'), 4);
 
 insert into tbl_bokhandel (bh_namn, bh_id)
     values ('Akademibokhandeln', 1),
     ('Hörnet', 2);
 
-
 insert into tbl_harbok (hb_bokhandel, hb_bok)
 values (1, 1), (1, 2), (1, 3),
        (2, 1), (2, 4);
+
+
